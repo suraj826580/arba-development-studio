@@ -7,8 +7,16 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  try {
+    return res
+      .status(200)
+      .send({ message: "Welcome to the arba developement studio" });
+  } catch (error) {
+    return res.status(400).send({ message: error.message });
+  }
+});
 app.use("/", route);
-
 app.listen(process.env.PORT, async () => {
   try {
     await connectToDatabase();
