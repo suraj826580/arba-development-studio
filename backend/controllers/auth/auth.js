@@ -102,6 +102,7 @@ export const changePassword = async (req, res) => {
 
     // Check if user exists
     const userData = await User.findById(userId);
+
     if (!userData) {
       return res.status(404).send({ message: "User not found" });
     }
@@ -125,13 +126,22 @@ export const changePassword = async (req, res) => {
       { password: hash },
       { new: true }
     );
-
     if (!result) {
       return res.status(500).send({ message: "Failed to update password" });
     }
 
-    // Send success response to client
     res.status(200).send({ message: "Password changed successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+};
+
+export const getUser = async (req, res) => {
+  try {
+    const userId = req.userId;
+    const user = await User.findById({ _id: userId });
+    res.status(200).send({ message: "User Get Successfully", user });
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: "Internal Server Error" });
