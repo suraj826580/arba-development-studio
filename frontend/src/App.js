@@ -1,11 +1,12 @@
+import { useState } from "react";
 import "./App.css";
-import TermsAndCondition from "./components/termsAndCondition/TermsAndCondition";
 import MainRoutes from "./routes/MainRoutes";
 
 function App() {
+  const [accepted, setAccepted] = useState(false);
   return (
     <>
-      <MainRoutes />
+      <MainRoutes accepted={accepted} setAccepted={setAccepted} />
     </>
   );
 }

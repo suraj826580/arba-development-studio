@@ -5,7 +5,7 @@ import HomePage from "../pages/HomePage";
 import PrivateRoute from "./PrivateRoute";
 import TermsAndCondition from "../components/termsAndCondition/TermsAndCondition";
 import Profile from "../pages/Profile";
-function MainRoutes() {
+function MainRoutes({ setAccepted, accepted }) {
   return (
     <Routes>
       <Route path="/" element={<AuthPage />} />
@@ -14,7 +14,7 @@ function MainRoutes() {
         element={
           <PrivateRoute>
             <HomePage />
-            <TermsAndCondition />
+            <TermsAndCondition accepted={accepted} setAccepted={setAccepted} />
           </PrivateRoute>
         }
       />
@@ -22,7 +22,8 @@ function MainRoutes() {
         path="/profile"
         element={
           <PrivateRoute>
-            <Profile />
+            <Profile accepted={accepted} setAccepted={setAccepted} />
+            <TermsAndCondition accepted={accepted} setAccepted={setAccepted} />
           </PrivateRoute>
         }
       />

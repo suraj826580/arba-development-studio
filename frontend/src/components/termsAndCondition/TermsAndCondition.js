@@ -11,14 +11,14 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
-function TermsAndCondition() {
+function TermsAndCondition({ accepted, setAccepted }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [accepted, setAccepted] = useState(false);
-
+  const [isAccepted, setisAccepted] = useState(
+    localStorage.getItem("termsAccepted") || ""
+  );
   useEffect(() => {
-    const isAccepted = localStorage.getItem("termsAccepted");
     if (isAccepted) {
-      setAccepted(true);
+      setisAccepted(true);
     } else {
       onOpen();
     }

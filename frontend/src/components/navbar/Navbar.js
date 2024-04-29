@@ -71,7 +71,6 @@ const Navbar = () => {
               onClick={() => {
                 localStorage.removeItem("token");
                 localStorage.removeItem("termsAccepted");
-
                 navigate("/");
               }}
               icon={<IoIosLogOut size={17} />}

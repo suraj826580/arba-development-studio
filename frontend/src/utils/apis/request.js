@@ -4,10 +4,10 @@ export const request = async (url, method, data) => {
       method,
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
       },
       body: JSON.stringify(data),
     });
-    console.log(response);
     return await response.json();
   } catch (error) {
     console.log(error);
