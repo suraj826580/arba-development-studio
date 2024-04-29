@@ -10,8 +10,10 @@ const CountButton = ({ toggleCounter, settoggleCounter }) => {
   };
 
   const decrementCount = () => {
-    if (count > 0) {
+    if (count > 1) {
       setCount(count - 1);
+    } else {
+      settoggleCounter(false);
     }
   };
 
