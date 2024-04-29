@@ -17,3 +17,5 @@ app.listen(process.env.PORT, async () => {
     console.log(error);
   }
 });
+
+export default app;
