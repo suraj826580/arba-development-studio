@@ -26,6 +26,12 @@ function Signup({ state, setstate }) {
     (store) => store.register
   );
   const onSubmit = (data) => {
+    const { password, confirmPassword } = data;
+    if (password != confirmPassword) {
+      alert("Both Password needs to match");
+      return;
+    }
+
     dispatch(registerUser(data))
       .then((res) => {
         if (res.message == "Registration Successful") {

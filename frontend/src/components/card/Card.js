@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Button, GridItem, Heading, Text } from "@chakra-ui/react";
 import CountButton from "./cardButton";
 
 const ImageTextCard = ({ imageUrl, productName, description, amount }) => {
+  const [toggleCounter, settoggleCounter] = useState(false);
   return (
     <GridItem
       w="100%"
@@ -42,11 +43,11 @@ const ImageTextCard = ({ imageUrl, productName, description, amount }) => {
           <Text fontSize="lg" fontWeight="bold" color="gray.600" mb="1">
             Rs. {amount}
           </Text>
-          <Button w={"100%"} colorScheme="linkedin">
-            Add to Cart
-          </Button>
 
-          <CountButton />
+          <CountButton
+            toggleCounter={toggleCounter}
+            settoggleCounter={settoggleCounter}
+          />
         </Box>
       </Box>
     </GridItem>

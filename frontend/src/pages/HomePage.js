@@ -6,7 +6,7 @@ import { Grid, Box, Button } from "@chakra-ui/react";
 
 function HomePage() {
   return (
-    <Box p="3">
+    <Box p={1}>
       <Navbar />
       <Carousel />
       <Grid templateColumns="repeat(5, 1fr)" gap={6}>

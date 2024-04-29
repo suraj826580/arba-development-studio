@@ -56,20 +56,22 @@ const Navbar = () => {
           />
           <MenuList>
             <MenuItem
-              icon={<CgProfile size={17} />}
-              color={"#000"}
-              onClick={onProfileOpen}>
-              Profile
-            </MenuItem>
-            <MenuItem
-              onClick={() => navigate("/my-dashboard")}
+              onClick={() => navigate("")}
               icon={<ExternalLinkIcon />}
               color={"#000"}>
+              My Store
+            </MenuItem>
+            <MenuItem
+              icon={<CgProfile size={17} />}
+              color={"#000"}
+              onClick={() => navigate("/profile")}>
               Profile
             </MenuItem>
             <MenuItem
               onClick={() => {
                 localStorage.removeItem("token");
+                localStorage.removeItem("termsAccepted");
+
                 navigate("/");
               }}
               icon={<IoIosLogOut size={17} />}
